@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eman ♡ Ashan — A Little World of Us</title>
+<meta name="theme-color" content="#09050b">
+<style>
+:root{--bg:#08050a;--panel:rgba(27,13,25,.72);--rose:#ff6f9f;--rose2:#ffb6cf;--gold:#f5d48b;--cream:#fff5f7;--muted:#c9aebc;--line:rgba(255,182,207,.17);--shadow:0 0 35px rgba(255,74,133,.18),0 0 90px rgba(244,199,112,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 10%,#2b1025 0,transparent 30%),radial-gradient(circle at 85% 20%,#24112c 0,transparent 28%),linear-gradient(145deg,#08050a,#120810 55%,#08050a);color:var(--cream);font-family:Georgia,"Times New Roman",serif;min-height:100vh;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;inset:auto;pointer-events:none;z-index:0;border-radius:50%;filter:blur(18px);opacity:.28}.container{position:relative;z-index:2;max-width:1100px;margin:auto;padding:28px 18px 80px}
+.ambient{position:fixed;width:280px;height:280px;border-radius:50%;background:rgba(255,78,140,.13);filter:blur(60px);pointer-events:none;animation:drift 9s ease-in-out infinite alternate;z-index:0}.a1{left:-90px;top:25%}.a2{right:-100px;top:60%;animation-delay:2s;background:rgba(246,207,119,.1)}
+@keyframes drift{to{transform:translate(70px,-40px) scale(1.15)}}@keyframes pulse{50%{box-shadow:0 0 60px rgba(255,100,160,.28),inset 0 0 35px rgba(255,180,210,.06)}}@keyframes float{50%{transform:translateY(-13px)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes blink{50%{opacity:.25}}
+h1,h2,h3{font-weight:500;letter-spacing:.04em}.center{text-align:center}.eyebrow{font-size:.78rem;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}.hero{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center}.hero-box{max-width:850px;padding:44px 24px}.hero h1{font-size:clamp(3.3rem,10vw,7.2rem);margin:15px 0 10px;text-shadow:0 0 35px rgba(255,105,160,.55)}.hero .heart{color:var(--rose);animation:blink 2s infinite}.subtitle{font-size:clamp(1.1rem,3vw,1.55rem);color:var(--muted);line-height:1.9}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid rgba(255,190,210,.3);background:linear-gradient(135deg,rgba(255,101,156,.2),rgba(245,212,139,.08));color:var(--cream);padding:13px 22px;border-radius:999px;cursor:pointer;font:inherit;box-shadow:0 0 22px rgba(255,80,140,.1);transition:.3s}.btn:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(255,80,140,.28)}.section{margin:36px 0;padding:34px 18px}.section-title{text-align:center;font-size:clamp(1.9rem,5vw,3rem);margin:0 0 10px;text-shadow:0 0 22px rgba(255,100,160,.3)}.section-note{text-align:center;color:var(--muted);max-width:720px;margin:0 auto 28px;line-height:1.8}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:17px}.card{position:relative;min-height:170px;padding:24px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(40,19,36,.78),rgba(16,9,17,.72));box-shadow:var(--shadow);overflow:hidden;transition:.35s}.card:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-55px;top:-55px;background:rgba(255,106,160,.13);filter:blur(20px)}.card:hover{transform:translateY(-6px) scale(1.01);border-color:rgba(255,185,207,.35)}.card h3{margin:0 0 9px;color:var(--rose2);font-size:1.35rem}.card p{color:var(--muted);line-height:1.65;margin:0}.tag{display:inline-block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:15px}
+.story{border:1px solid var(--line);border-radius:30px;padding:30px;background:linear-gradient(145deg,rgba(37,18,33,.86),rgba(13,8,14,.78));box-shadow:var(--shadow)}.chapter{padding:26px 4px;border-bottom:1px solid rgba(255,182,207,.11)}.chapter:last-child{border-bottom:0}.chapter h3{color:var(--gold);font-size:1.5rem;margin:0 0 12px}.chapter p{color:#ead9df;line-height:2;font-size:1.02rem;margin:0 0 13px}.signature{color:var(--rose2);font-style:italic}
+.modal{position:fixed;inset:0;background:rgba(3,2,5,.82);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:18px;z-index:20}.modal.show{display:flex}.modal-box{width:min(780px,100%);max-height:88vh;overflow:auto;border:1px solid rgba(255,180,205,.26);border-radius:30px;background:linear-gradient(145deg,#1c0e19,#0d080e);box-shadow:0 0 80px rgba(255,70,135,.2);padding:30px}.modal-box h2{color:var(--rose2);text-align:center}.close{float:right}.poem{min-height:270px;display:flex;flex-direction:column;justify-content:center;text-align:center}.poem-text{font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic",serif;font-size:clamp(1.25rem,3.8vw,1.8rem);line-height:2.25;color:#fff2f6}.pager{display:flex;justify-content:center;gap:12px;margin-top:22px}.count{text-align:center;color:var(--gold);font-size:.85rem;letter-spacing:.15em}
+.timeline{display:grid;gap:15px}.memory{padding:22px;border-left:2px solid rgba(245,212,139,.45);background:rgba(255,255,255,.025);border-radius:0 18px 18px 0}.memory b{color:var(--rose2)}.memory p{line-height:1.8;color:#dcc8d0}
+.counter{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.timebox{padding:16px;border-radius:18px;background:rgba(255,255,255,.035);border:1px solid var(--line);text-align:center}.timebox strong{display:block;font-size:1.7rem;color:var(--gold)}.timebox span{font-size:.75rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}.small{font-size:.88rem;color:var(--muted);line-height:1.8}
+.password{max-width:520px;margin:0 auto;text-align:center}.password input{width:100%;padding:15px 18px;border-radius:999px;border:1px solid var(--line);background:#0e080e;color:white;font:inherit;text-align:center;outline:none}.error{min-height:50px;color:#ff8aa9;margin-top:12px}.hidden{display:none!important}
+footer{text-align:center;color:#8e7180;padding:30px}.birds{font-size:2rem;letter-spacing:18px;color:var(--rose2);animation:float 4s ease-in-out infinite}
+.loading-ring{width:150px;height:150px;border-radius:50%;margin:30px auto 15px;border:5px solid rgba(255,255,255,.06);border-top-color:var(--rose);border-right-color:var(--gold);display:grid;place-items:center;animation:spin 1.4s linear infinite}.loading-ring span{animation:spin 1.4s linear infinite reverse;font-size:1.9rem}.loading-number{font-size:2.3rem;color:var(--gold)}.loading-msg{min-height:44px;color:var(--rose2);font-style:italic;line-height:1.5}.fixed-label{letter-spacing:.24em;font-size:.72rem;color:#a78693}
+@media(max-width:600px){.counter{grid-template-columns:repeat(2,1fr)}.section{padding:25px 5px}.story{padding:22px 18px}.card{min-height:150px}}
+</style>
+</head>
+<body>
+<div class="ambient a1"></div><div class="ambient a2"></div>
+<main class="container">
+
+<section class="hero">
+<div class="hero-box">
+<div class="eyebrow">A little secret, made with love</div>
+<div class="birds">♡ 𓅪 ♡ 𓅪 ♡</div>
+<h1>Eman <span class="heart">♡</span> Ashan</h1>
+<p class="subtitle">It’s not just an advance birthday wish.<br>It’s a little world I made so every page can quietly say what my heart sometimes cannot.</p>
+<p class="small">Your pre-birthday gift is waiting… and yes, I put a ridiculous amount of love into it.</p>
+<button class="btn" onclick="go('loading')">Open Your Surprise ✦</button>
+</div>
+</section>
+
+<section id="loading" class="section center">
+<div class="eyebrow">One little moment before the surprise</div>
+<div class="loading-ring"><span>♡</span></div>
+<div class="loading-number" id="loadNum">0%</div>
+<div class="loading-msg" id="loadMsg">A little love is loading…</div>
+<div class="fixed-label">PREPARING YOUR SURPRISE</div>
+</section>
+
+<section class="section center">
+<div class="eyebrow">Before the birthday arrives</div>
+<h2 class="section-title">Advance Birthday Wish ♡</h2>
+<p class="section-note">Aapko birthday se pehle wish karne ki ek choti si zid hai — kyun ke kuch logon ko sirf date par wish karna dil ko kaafi nahi lagta.</p>
+<div class="story">
+<p class="chapter p" style="border:0">Meri dua hai ke aapki zindagi mein sukoon itna ho ke dil ko har mushkil ke baad bhi ghar jaisa ehsaas mile. Allah aapko sehat, kamyabi, lambi zindagi, halal khushiyan aur har woh cheez de jo aapke haq mein behtareen ho. Aur jab naya saal-e-zindagi shuru ho, meri dua hai ke uske har din mein roshni ho.</p>
+<p class="signature">Happy early birthday — meri taraf se, thora sa pehle, bohat saara dil se.</p>
+</div>
+</section>
+
+<section class="section center">
+<div class="eyebrow">A note before the door opens</div>
+<h2 class="section-title">For You, From Me</h2>
+<p class="section-note" id="typewriter"></p>
+</section>
+
+<section class="section center">
+<div class="eyebrow">Every gift has a little secret</div>
+<h2 class="section-title">The Wrapping ♡</h2>
+<p class="section-note">Har gift ki wrapping hoti hai. Is gift ki wrapping thori zyada complicated hai… kyun ke andar sirf surprise nahi, meri bohat si yaadein hain.</p>
+<button class="btn" onclick="document.getElementById('pass').scrollIntoView()">Unwrap It</button>
+</section>
+
+<section id="pass" class="section">
+<div class="password">
+<div class="eyebrow">Private little door</div>
+<h2 class="section-title">Password Please ♡</h2>
+<p class="section-note">Hint: 12 January 2024 se judi hui ek cheez… aur mera naam.</p>
+<input id="pw" type="password" placeholder="Enter the secret password">
+<button class="btn" style="margin-top:15px" onclick="unlock()">Open Our World</button>
+<div class="error" id="err"></div>
+</div>
+</section>
+
+<section id="welcome" class="section center hidden">
+<div class="birds">𓅪 ♡ 𓅪</div>
+<div class="eyebrow">Door unlocked</div>
+<h2 class="section-title">Welcome to Our Little World</h2>
+<p class="section-note">Ab woh pages khul rahe hain jahan har cheez meri taraf se hai — meri feelings, meri duas, meri memories, aur hamari kahani.</p>
+<button class="btn" onclick="go('home')">Enter ♡</button>
+</section>
+
+<section id="home" class="section hidden">
+<div class="center">
+<div class="eyebrow">Choose a little door</div>
+<h2 class="section-title">Our Little World</h2>
+<p class="section-note">Har card mein ek alag feeling hai. Koi jaldi nahi — ek ek karke kholna.</p>
+</div>
+<div class="card-grid">
+<div class="card" onclick="openPoem()"><span class="tag">25 chapters</span><h3>Urdu Poetry</h3><p>25 alag nazmein/ashaar — har page par ek, phir Next.</p></div>
+<div class="card" onclick="openContent('future')"><span class="tag">My tomorrow</span><h3>Future Dreams With You</h3><p>Woh choti bari cheezein jo main kal mein dekhna chahti hoon.</p></div>
+<div class="card" onclick="openContent('why')"><span class="tag">From my heart</span><h3>Why I Love You</h3><p>Reasons jo sirf looks ya words se nahi, moments se bane.</p></div>
+<div class="card" onclick="openContent('duas')"><span class="tag">Always</span><h3>Duas For You</h3><p>Woh duaein jo main aapke liye dil se mangti hoon.</p></div>
+<div class="card" onclick="openBirthday()"><span class="tag">Special world</span><h3>Birthday Card ✦</h3><p>Ek alag birthday world — wishes, gifts, surprises aur hidden notes.</p></div>
+<div class="card" onclick="openContent('things')"><span class="tag">Little things</span><h3>Our Little Things</h3><p>Woh choti baatein jo mere liye kabhi choti nahi rahi.</p></div>
+<div class="card" onclick="openContent('letter')"><span class="tag">One letter</span><h3>A Letter From Eman</h3><p>Ek seedha sa khat — bina kisi filter ke.</p></div>
+<div class="card" onclick="openContent('memory')"><span class="tag">Memory lane</span><h3>Memory Lane</h3><p>Hamari yaadon ke woh scenes jo mere dil mein abhi bhi zinda hain.</p></div>
+<div class="card" onclick="openContent('promise')"><span class="tag">A promise</span><h3>What I Still Hope For</h3><p>Laraiyon ke bawajood jo umeed main dil mein sambhal kar rakhti hoon.</p></div>
+<div class="card" onclick="openStory()"><span class="tag">12 Jan 2024 → 8 Sep 2026</span><h3>Our Full Story</h3><p>Meri zubaan se, meri feelings ke saath — sirf facts ki list nahi.</p></div>
+</div>
+</section>
+
+<section id="story" class="section hidden">
+<div class="center"><div class="eyebrow">Written by me</div><h2 class="section-title">Hamari Kahani ♡</h2><p class="section-note">Main is kahani ko sirf dates ke saath nahi likh sakti. Kuch dates calendar par hoti hain, aur kuch dil par.</p></div>
+<div class="story">
+<div class="chapter"><h3>12 January 2024 — 7:00 PM</h3>
+<p>Mujhe aaj bhi woh shaam yaad hai. Main noodles bana rahi thi aur Snapchat streak bhej rahi thi. Phir achanak light chali gayi, Wi‑Fi disconnect ho gaya. Maine mobile data on kiya aur bina soche snap bhej diya… aur pata nahi kaise woh aapko chala gaya.</p>
+<p>Phir screen par “Assalamualaikum” aaya. Maine “Walaikum Assalam” likha. Uske baad ek simple sa sawaal: “Aap kon?” Maine bhi wahi pooch liya. Phir woh ajeeb sa jawab — “Aap wohi jo main samajh raha hu.” Maine bhi likh diya, “Aap wohi jo main samajh rahi hu.”</p>
+<p>Naam saamne aaye… aur phir pata nahi kaise ek random conversation ne meri routine mein jagah bana li. Pehle bas baat hui. Phir roz baat hone lagi. Kabhi hansi, kabhi gussa, kabhi choti si nok-jhok. Dosti dheere dheere itni gehri hoti gayi ke mujhe khud samajh nahi aaya ke kab ek normal conversation meri favourite notification ban gayi.</p></div>
+
+<div class="chapter"><h3>From Friends to Something More</h3>
+<p>Humne sirf achay din nahi dekhe. Laraiyan bhi hui, narazgiyan bhi, kabhi ek dusre se irritate bhi hue. Lekin ajeeb baat yeh thi ke har dafa baat phir wahi aa kar rukti — hum ek dusre ko khona nahi chahte thay. Dosti best-friend wali jagah tak pohanchi, aur shayad dil us se bhi aage nikal chuka tha.</p></div>
+
+<div class="chapter"><h3>8 May 2024 — The Page I Couldn’t Hide</h3>
+<p>Us din mera Urdu ka paper tha aur main tayari kar rahi thi. Ek rough page par maine “Eman” bohat dafa likha. Aur phir pata nahi kis himmat se, aapka naam teen jagah chhupa diya. Maine us page ki photo bheji aur kaha ke dekhein, aapka naam dhoondhein.</p>
+<p>Aapne dhoond liya. Phir maine poocha ke ab mujhe kya karna chahiye. Pehle baat taal di gayi. Maine dobara poocha. Phir woh baat saamne aa hi gayi jo shayad hum dono ke dil mein pehle se thi — hamari dosti aage barh rahi thi, aur feelings bhi.</p>
+<p>Main kuch der bilkul khamosh rahi. Mere liye yeh koi choti baat nahi thi. Maine kaha ke main Ammi aur Abu ke baghair aisa faisla nahi kar sakti. Aapne mujhe tasalli di ke baat samjhaane ki koshish ki jayegi. Aur us din meri zindagi mein ek naya lafz sirf lafz nahi raha — <span class="signature">mohabbat</span> ban gaya.</p></div>
+
+<div class="chapter"><h3>9 July 2024 — Woh Choti Si Raat</h3>
+<p>Jab ghar walay Punjab mein thay aur Karachi mein sirf main aur Urooj thay, ek raat mulaqat hui. Raat 12 se 1 ke darmiyan. Maine aapke liye chai banayi. Aapne woh chai pi. Hum paas kharay baat karte rahe. Bahar se dekha jaye to shayad woh sirf ek choti si mulaqat thi… lekin mere liye us raat ka har minute alag tha.</p>
+<p>10 July ki subah phir mulaqat hui. 7–8 baje ka waqt tha. Neend se zyada baat karne ka shauq tha. Thori dair baad ghar walay Punjab se wapas aa gaye aur woh choti si azaadi khatam ho gayi, lekin woh dono mulaqatein mere dil mein reh gayin.</p></div>
+
+<div class="chapter"><h3>October 2024 — Ek Mahina Jo Yaad Ban Gaya</h3>
+<p>Ammi, Aliza aur Abu Punjab gaye aur taqreeban ek mahina aisa guzra jahan mulaqatein roz ki aadat ban gayin. Roz milna, baatein karna, hansna, waqt guzarna… aur do raatain bhi saath guzri jo mere liye kisi grand plan se zyada qeemti thin.</p>
+<p>Mujhe un dinon ki ek khaas baat yaad hai: khushi ko kisi badi cheez ki zaroorat nahi thi. Bas aapka paas hona kaafi lagta tha.</p></div>
+
+<div class="chapter"><h3>31 March – 4 April 2025 — Chaar Din, Bohat Saari Yaadein</h3>
+<p>31 March ko ghar walay Punjab gaye. Main aur Urooj Karachi mein rahe kyun ke mere 9th class board exams thay. Mamu ki shaadi ke liye sab gaye thay, aur un chand dinon mein humein milne ka waqt mila.</p>
+<p>2 April ko mera birthday tha. Celebration bohat chota tha, lekin mere liye bohat khaas. Kabhi kabhi badi decoration se zyada ek sincere effort yaad rehta hai.</p>
+<p>3 April ko Urooj ke saath Imtiaz gaye. Chocolate mili, mera favourite juice mila. Ghar wapas aaye, baatein ki, raaton ko cheezein order ki, saath baithay. Aur phir 4 April… Punjab ki ticket, safar ka waqt, aur mere haath se khana khila kar woh rukhsat ka lamha. Kuch departures ajeeb hotay hain — insaan chala jata hai, lekin room mein uski presence bohat der tak mehsoos hoti rehti hai.</p></div>
+
+<div class="chapter"><h3>24 May 2026 — Train, Khamoshi Aur Nazar</h3>
+<p>24 May ko poora ghar train se Punjab gaya. Sab ke beech openly baat karna asaan nahi tha, is liye humne nazron ko apni zubaan bana liya. Kabhi ek nazar, kabhi ek choti si smile… aur dil samajh leta tha jo alfaaz keh nahi sakte thay.</p>
+<p>Safar mein meri tabiyat kharab hui. Aap Sting aur nimco le aaye. Mujhe washroom tak do dafa saath le gaye kyun ke main dar rahi thi. Mujhe us waqt kisi dramatic sentence ki zaroorat nahi thi. Care khud ek sentence ban gayi thi.</p></div>
+
+<div class="chapter"><h3>Punjab — Raaten Jo 4:30 Tak Chali</h3>
+<p>Punjab pohanch kar cousins ke saath raat ki gatherings hoti rahin. Kabhi 4 baje, kabhi 4:30 tak. Ice cream, burgers, noodles, hasi, random conversations… woh raatain simple thin, magar unmein ek warmth thi jo mujhe ab bhi yaad hai.</p>
+<p>Ek raat meri tabiyat phir kharab hui. Us raat mujhe sirf yeh yaad nahi ke kya khaya ya kya kaha gaya — mujhe yaad hai care. Body, shoulders, hands, feet aur head massage karna. Burger khilana. Aur mere liye chocolate la kar usay apne haath se khilana. Mere liye mohabbat ka matlab us raat kisi quote mein nahi tha. Woh mere saamne care ki shakal mein baithi thi.</p></div>
+
+<div class="chapter"><h3>Wapas Aane Se Pehle</h3>
+<p>Funville gaye. Kamal Chishti ke mazar par gaye. Hotel mein khana khaya. Aur wahan se mere liye ek bracelet bhi liya gaya. Bracelet chota sa tha, lekin meri yaad mein uski jagah bohat badi hai — kyun ke kuch cheezein price se nahi, moment se precious hoti hain.</p></div>
+
+<div class="chapter"><h3>13 June 2026 — Karachi Wapas</h3>
+<p>13 June ko Karachi wapas aa gayi. Phir zindagi apni normal speed par aayi… aur shayad hum dono ke andar bhi bohat kuch normal nahi raha. 20 June se 3 September tak laraiyan hoti rahin. Kuch baatein dil ko bohat gehra hurt kar gayin.</p>
+<p>Main yeh sab is liye nahi likh rahi ke purani baaton ko dobara zinda karun. Main sirf itna chahti hoon ke meri khamoshi ko kabhi meri feelings ki kami na samjha jaye. Main larai nahi chahti. Main aapko annoy nahi karna chahti. Main sirf chahti hoon ke jab mere dil mein koi baat ho, usay samajhne ki thori si jagah mile.</p>
+<p>Kabhi kabhi aansu kisi ki choice nahi hotay. Aur kabhi ek larki kisi relationship ki baat is liye khud start nahi karti ke usay bohat shauq hota hai — woh tab bolti hai jab usay lagta hai ke baat andar rakhne se aur zyada dard hoga. Maine bhi isi liye bola, kyun ke mujhe hamari parwah thi.</p>
+<p>Allah sab dekhta hai. Shayad waqt ke saath kuch baatein aur kuch decisions zyada clearly samajh aayen. Main aaj bhi bad-dua nahi karti. Main chahti hoon ke aap kamyab hon, khush hon, sukoon mein hon. Aur agar meri kisi baat mein kabhi kami rahi ho, to meri niyyat ko samajhne ki koshish zaroor karna.</p></div>
+
+<div class="chapter"><h3>Still Us</h3>
+<p>Itni saari dates, itni saari fights, itni saari hansi… aur phir bhi ek simple si baat abhi tak sach hai: hum dost hain. Hum mohabbat karte hain. Aur mere dil mein abhi bhi yeh umeed hai ke hum ek dusre ko behtar samajhna seekh sakte hain.</p>
+<p>Mujhe perfect kahani nahi chahiye. Mujhe woh kahani chahiye jahan dono log galtiyon ke baad ruk kar ek dusre ko samajhne ki koshish karein.</p>
+<p class="signature">Agar kabhi aap is poori kahani ko dobara parhein, to please sirf dates mat parhna. Un dates ke darmiyan jo meri feelings thin… unhein bhi parhna.</p></div>
+</div>
+<div class="center" style="margin-top:28px"><button class="btn" onclick="go('home')">Back to Our World</button></div>
+</section>
+
+<section class="section hidden" id="duration">
+<div class="center"><div class="eyebrow">A number that keeps moving</div><h2 class="section-title">Since Our Beginning</h2><p class="section-note">Friendship: 12 January 2024, 7:00 PM · Love: 8 May 2024</p></div>
+<div class="counter" id="counter"></div>
+<p class="small center" id="totals"></p>
+</section>
+
+<footer>Made with too many feelings, too many memories, and one very soft heart. ♡</footer>
+</main>
+
+<div class="modal" id="modal"><div class="modal-box"><button class="btn close" onclick="closeModal()">Close</button><div id="modalContent"></div></div></div>
+
+<script>
+const loadMessages=[
+"0% — Bas shuru hua hai…","1% — Dil ne pehli baar ek secret rakha.","2% — Ek choti si smile loading.","3% — Shayad aapko andaza nahi.","4% — Is surprise mein bohat si yaadein hain.","5% — Pehla page sirf trailer hai.","6% — Thori si warmth add ho rahi hai.","7% — Ek notification ki yaad aa gayi.","8% — Woh random snap yaad hai?","9% — Kahani abhi bohat baqi hai.","10% — Ek naam dheere se dil mein aa raha hai.","11% — Choti choti baatein collect ho rahi hain.","12% — Dosti ka ek naya chapter.","13% — Hansi bhi save ho rahi hai.","14% — Narazgiyan bhi kahani ka hissa hain.","15% — Dil ke folder mein ek aur memory.","16% — Aapki ek smile ka backup ban gaya.","17% — Kuch moments delete nahi hotay.","18% — Bas thora aur.","19% — Ek rough page bhi special ban sakta hai.","20% — Naam chhupana mushkil tha.","21% — Secret almost reveal hua.","22% — Urdu paper ki woh tayari…","23% — Aur page par woh teen naam.","24% — Phir ek sawaal.","25% — Aur dil ki baat saamne.","26% — Mohabbat ka chapter open.","27% — Pehli chai ki khushboo aa rahi hai.","28% — Raat thori aur khoobsurat ho gayi.","29% — 9 July ki ek soft si memory.","30% — Subah bhi baat poori nahi hui.","31% — 10 July bhi yaad ban gaya.","32% — Time flies, memories stay.","33% — October ka ek poora mahina.","34% — Roz milna bhi ek blessing tha.","35% — Kuch khushiyan bilkul simple hoti hain.","36% — 2025 ka ek chota birthday.","37% — Choti celebration, badi feeling.","38% — Chocolate aur favourite juice.","39% — Imtiaz ki ek simple si outing.","40% — Raaton ki conversations.","41% — Phir ek departure.","42% — Safar ke baad bhi connection raha.","43% — May 2026 ka train journey.","44% — Nazrein bhi baat karti hain.","45% — Care kabhi loud nahi hoti.","46% — Sting aur nimco.","47% — Dar ke waqt saath.","48% — Punjab ki raatain.","49% — 4 baje tak conversations.","50% — Halfway… aur kahani dil mein.","51% — Ice cream.","52% — Burgers.","53% — Noodles.","54% — Hansi.","55% — Ek raat care ki.","56% — Massage ki woh yaad.","57% — Apne haath se khilaya hua burger.","58% — Chocolate ka woh moment.","59% — Mohabbat actions mein bhi hoti hai.","60% — Funville.","61% — Kamal Chishti.","62% — Ek bracelet.","63% — Wapas Karachi.","64% — Phir normal life.","65% — Phir difficult days.","66% — Kuch words dil ko chubh gaye.","67% — Main larai nahi chahti.","68% — Main sirf samjhi jana chahti hoon.","69% — Aansu choice nahi hotay.","70% — Dil ko bhi ek safe jagah chahiye.","71% — Allah sab dekh raha hai.","72% — Waqt bohat kuch samjhata hai.","73% — Main bad-dua nahi karti.","74% — Main aapki kamyabi chahti hoon.","75% — Aapki khushi ki dua hai.","76% — Aapki sehat ki dua hai.","77% — Aapke sukoon ki dua hai.","78% — Kahani perfect nahi.","79% — Lekin feelings real hain.","80% — Dosti abhi bhi hai.","81% — Mohabbat abhi bhi hai.","82% — Umeed bhi hai.","83% — Samajhne ki koshish bhi.","84% — Ek aur page khulne wala hai.","85% — Poetry bhi ready hai.","86% — Duas bhi.","87% — Future dreams bhi.","88% — Little things bhi.","89% — Memories bhi.","90% — Birthday world bhi.","91% — Gifts bhi.","92% — Hidden notes bhi.","93% — Bas thora sa aur.","94% — Dil ko sambhal kar rakhna.","95% — Surprise almost ready.","96% — Ek deep breath.","97% — Aankhon mein thori si smile.","98% — Ab sirf door khulna baqi hai.","99% — Almost there, meri jaan.","100% — Welcome to the little world I made for you."
+];
+let i=0;const ln=document.getElementById("loadNum"),lm=document.getElementById("loadMsg");
+const timer=setInterval(()=>{i++;ln.textContent=i+"%";lm.textContent=loadMessages[i]||loadMessages[100];if(i>=100)clearInterval(timer)},75);
+function go(id){document.getElementById(id)?.scrollIntoView({behavior:"smooth"})}
+const content={
+future:{title:"Future Dreams With You",pages:[
+"Main kisi movie jaisi perfect life nahi maangti. Main bas aisi life imagine karti hoon jahan ordinary days bhi special lagain kyun ke unmein aap hon.",
+"Subah ki chai — kabhi bilkul perfect, kabhi zyada meethi, aur dono hans kar usay accept kar rahe hon.",
+"Ek aisa ghar jahan sukoon ho, respect ho, aur har mushkil ke baad dono ek dusre ki side par kharay hon.",
+"Random drives jahan destination se zyada playlist aur conversation important ho.",
+"Ek shelf jahan choti choti cheezein rakhi hon aur har cheez ke peeche ek story ho.",
+"Mil kar khana banana — aur meri taraf se kitchen mein thori si chaos ki guarantee.",
+"Ramadan ki raaton mein saath dua karna aur Allah se ek dusre ke liye khair maangna.",
+"Travel plans jo sirf photos ke liye nahi, memories ke liye hon.",
+"Ek din purani chats khol kar hasna ke hum kitni choti baaton par lar lete thay.",
+"Hard days mein bhi ek sentence: “Main yahan hoon.” Bas itna kaafi ho.",
+"Ek dusre ki growth dekhna aur secretly proud feel karna.",
+"Family ke saath khushiyan share karna aur ghar ko sirf place nahi, comfort banana.",
+"Birthday par expensive cheez se pehle handwritten note dena.",
+"Barish ke din chai, blanket aur lambi conversation.",
+"Late-night hunger ka emergency noodles plan.",
+"Har saal ek nayi memory banana jo purani memories ke saath compete na kare, bas unke paas ek aur jagah bana le.",
+"Apni mistakes ko ego se zyada important na banana.",
+"Ek relationship jahan silence bhi uncomfortable na ho.",
+"Ek dusre ke dreams ko “mera” aur “aapka” keh kar separate na karna — support karna.",
+"Choti achievements celebrate karna, chahe duniya ke liye woh choti hi kyun na hon.",
+"Ek peaceful life jahan drama se zyada dua ho.",
+"Old age ki funny si imagination — aur phir bhi ek dusre ko tease karna.",
+"Har mushkil phase ke baad yeh yaad rakhna ke humne pehle bhi bohat kuch cross kiya hai.",
+"Main future ki guarantee nahi maangti. Main bas sincere effort aur saath chalne ki niyyat chahti hoon.",
+"Sab se aakhri dream: jab kabhi peeche mud kar dekhein, to lage ke haan… yeh journey worth it thi."
+]},
+why:{title:"Why I Love You",pages:[
+"Mujhe aap se sirf is liye mohabbat nahi ke aap meri story ka hissa hain. Mohabbat un moments se bani jo dheere dheere collect hotay gaye.",
+"Mujhe yaad hai jab care kisi announcement ke baghair bhi samajh aa gayi.",
+"Jab meri tabiyat kharab thi aur mere darr ko seriously liya gaya.",
+"Jab ek simple chocolate bhi mujhe kisi grand gift se zyada special lagi.",
+"Jab favourite juice yaad raha — kyun ke yaad rakha jana bhi mohabbat ki ek form hai.",
+"Jab meri awkwardness ko judge karne ke bajaye space mili.",
+"Jab hum hansi mein bilkul bachon jaisi energy le aate thay.",
+"Jab random conversations hours mein badal jati thin.",
+"Jab ek nazar poori conversation keh deti thi.",
+"Jab mujhe laga ke meri feelings sunna important samjha ja raha hai.",
+"Jab simple chai ek memory ban gayi.",
+"Jab departure ke waqt dil ne kaha ke yeh moment yaad rahega.",
+"Jab Punjab ki raatain unexpectedly meri favourite memories ban gayin.",
+"Jab care words se zyada actions mein nazar aayi.",
+"Jab kisi choti cheez ko mere liye special banane ki koshish hui.",
+"Jab mujhe laga ke main apni real feelings share kar sakti hoon.",
+"Jab friendship ne mujhe comfort diya aur love ne us comfort ko aur gehra kar diya.",
+"Main perfect insaan se mohabbat nahi karti. Main us insaan se karti hoon jiske saath real life, real flaws aur real feelings exist karte hain.",
+"Fights ne bhi mujhe ek cheez sikhayi: mujhe farq padta hai. Isi liye hurt hota hai.",
+"Main aapko change karna nahi chahti. Main chahti hoon ke hum dono better versions ban kar ek dusre ko samajhein.",
+"Meri mohabbat loud hone ki zaroorat nahi. Woh kabhi dua ban kar, kabhi fikr ban kar, kabhi silence ban kar rehti hai.",
+"Aapki success mujhe genuinely khush karegi, chahe meri taraf se koi applause na bhi ho.",
+"Aapka sukoon mere liye important hai — kyun ke mohabbat possess karna nahi, khair chahna bhi hoti hai.",
+"Main har memory ko perfect nahi kehti. Main unhein precious kehti hoon kyun ke woh hamari hain.",
+"Sab se simple reason: dil ne aapko apni favourite kahaniyon mein se ek bana liya."
+]},
+duas:{title:"Duas For You",pages:[
+"Allah aapki zindagi ko sukoon se bhar de, aisa sukoon jo sirf circumstances se nahi, dil se aaye.",
+"Allah aapko sehat de, har mushkil waqt mein himmat de aur har thakan ke baad rahat de.",
+"Allah aapke rizq mein barkat de aur har halal raasta aapke liye asaan kare.",
+"Allah aapki mehnat ko kamyabi mein badle aur aapko apni qabiliyat par yaqeen de.",
+"Allah aapko buri nazar, buri niyyat aur har nuqsan se mehfooz rakhe.",
+"Allah aapko ache logon ki sohbat de aur har ghalat jagah se hifazat kare.",
+"Allah aapke dil ko itminan de jab duniya ke shor se sab kuch mushkil lage.",
+"Allah aapki har jaiz dua ko behtareen waqt par qabool farmaye.",
+"Allah aapko apne walidain ke liye khushi aur fakhr ka sabab banaye.",
+"Allah aapki zindagi mein aisi khushiyan laayein jo aap ne imagine bhi na ki hon.",
+"Allah aapke ilm, kaam aur future mein barkat ata farmaye.",
+"Allah har decision mein aapko hikmat aur har qadam par rehnumai de.",
+"Allah aapko gusse ke waqt sabr aur mushkil waqt mein sukoon de.",
+"Allah aapke dil ko kisi bekaar gham ka bojh na de.",
+"Allah aapko apne maqasid tak izzat aur halal tareeqay se pohanchaye.",
+"Allah aapko lambi, sehatmand aur meaningful zindagi ata farmaye.",
+"Allah aapke ghar mein mohabbat, rehmat aur barkat rakhe.",
+"Allah aapke liye woh doors khol de jahan se aapne umeed bhi na ki ho.",
+"Allah aapko har setback ke baad aur mazboot banaye.",
+"Allah aapko apni hifazat mein rakhe — har jagah, har safar, har waqt.",
+"Allah aapko aisa dil de jo khud bhi sukoon paye aur doosron ko bhi sukoon de.",
+"Allah aapki har achi niyyat ko ajar aur har sincere effort ko khubsurat result de.",
+"Allah aapke chehre ki muskurahat ko qaim rakhe aur dil ke aansuon ko rahat mein badle.",
+"Allah hamare darmiyan jo bhi behtareen ho, usay asaan kare aur jo nuqsan wala ho, us se hifazat kare.",
+"Allah aapko duniya aur aakhirat dono mein khair, afiyat, rehmat aur kamyabi ata farmaye. Ameen."
+]},
+things:{title:"Our Little Things",pages:[
+"Ek random snap se shuru hui baat.",
+"“Assalamualaikum” ka woh pehla message.",
+"Ek dusre se identity confirm karne wali awkward conversation.",
+"Daily talking ka dheere dheere routine ban jana.",
+"Choti si nok-jhok ke baad phir baat kar lena.",
+"Best-friend wali comfort.",
+"Rough page par chhupay hue teen naam.",
+"“Find your name” wala little game.",
+"Urdu paper ki tayari ke darmiyan ek secret.",
+"9 July ki chai.",
+"10 July ki subah.",
+"October ki roz wali mulaqatein.",
+"Do raatain jo memory ban gayin.",
+"2 April ki choti birthday celebration.",
+"Imtiaz ka simple sa trip.",
+"Chocolate aur favourite juice.",
+"Raat ko cheezein order karna.",
+"4 April ka departure.",
+"Train mein nazron se baat.",
+"Sting aur nimco.",
+"Washroom tak saath chalna.",
+"Punjab ki 4:30 AM wali gatherings.",
+"Ice cream, burgers aur noodles.",
+"Ek bracelet jo ek poori trip ki yaad rakhta hai.",
+"Fights ke bawajood ek dusre ko dil se important samajhna."
+]},
+memory:{title:"Memory Lane",pages:[
+"12 January ki woh accidental snap.",
+"First proper greeting.",
+"First random conversation.",
+"Daily chats ka start.",
+"Friendship ka comfortable hona.",
+"8 May ka hidden-name page.",
+"Do minute ki woh khamoshi.",
+"Love ka pehla clear chapter.",
+"9 July ki midnight chai.",
+"10 July ki early morning meeting.",
+"October ka long phase.",
+"2 April ka birthday.",
+"3 April ka Imtiaz moment.",
+"4 April ka khana khila kar goodbye.",
+"24 May ka train journey.",
+"Eye contact wali communication.",
+"Tabiyat kharab hone par care.",
+"Punjab ki late-night gatherings.",
+"Massage aur burger wali raat.",
+"Chocolate ka sweet little moment.",
+"Funville.",
+"Kamal Chishti ka bracelet.",
+"13 June ko Karachi return.",
+"20 June se 3 September ka difficult phase.",
+"Phir bhi 8 September tak kahani ka yahan tak aa jana."
+]},
+promise:{title:"What I Still Hope For",pages:[
+"Main chahti hoon ke hum dono ek dusre ko sunne ka tareeqa aur behtar karein.",
+"Main chahti hoon ke gussa baat ko khatam na kare.",
+"Main chahti hoon ke hurt ko ignore karne ke bajaye samjha jaye.",
+"Main chahti hoon ke aansu ko weakness nahi, feeling samjha jaye.",
+"Main chahti hoon ke meri baat ko sirf complaint na samjha jaye.",
+"Main chahti hoon ke main bhi apni mistakes ko honestly accept karun.",
+"Main chahti hoon ke aap bhi apni feelings ko andar band na rakhein.",
+"Main chahti hoon ke ego se zyada relationship important ho.",
+"Main chahti hoon ke difficult conversations safe feel hon.",
+"Main chahti hoon ke hum purani baaton ko weapon na banayein.",
+"Main chahti hoon ke har apology ke baad behaviour mein bhi softness aaye.",
+"Main chahti hoon ke friendship humari foundation bani rahe.",
+"Main chahti hoon ke love sirf good days ka naam na ho.",
+"Main chahti hoon ke bad days mein bhi respect qaim rahe.",
+"Main chahti hoon ke Allah se khair mangte hue ek dusre ke liye bhi dua kar sakein.",
+"Main chahti hoon ke misunderstandings ke darmiyan assumption se pehle conversation ho.",
+"Main chahti hoon ke hum ek dusre ko grow karne dein.",
+"Main chahti hoon ke success alag alag ho sakti hai, lekin happiness share ki ja sake.",
+"Main chahti hoon ke future ka pressure present ki softness ko khatam na kare.",
+"Main chahti hoon ke small efforts notice kiye jayein.",
+"Main chahti hoon ke laughter hamare beech kabhi old-fashioned na ho.",
+"Main chahti hoon ke kisi bhi phase ke baad “hum” ko dobara choose kiya ja sake.",
+"Main chahti hoon ke agar kabhi meri baat samajh na aaye to poocha jaye.",
+"Main chahti hoon ke meri niyyat ko meri imperfect wording se alag dekha jaye.",
+"Sab se zyada: main chahti hoon ke Allah jo behtareen likhe, us mein dilon ko sukoon mile. Ameen."
+]},
+letter:{title:"A Letter From Eman",pages:[
+"Dear aap, yeh website banate waqt mujhe baar baar laga ke main words se zyada memories arrange kar rahi hoon.",
+"Main nahi chahti ke aap isay sirf ek birthday gift samjhein. Yeh meri taraf se ek safe little place hai jahan meri feelings bina interruption ke bol sakti hain.",
+"Main bohat kuch keh deti hoon, kabhi shayad wrong timing par, kabhi emotional ho kar. Lekin meri intention aksar ek hi hoti hai: mujhe farq padta hai.",
+"Main larai nahi chahti. Main kisi din ko unnecessary heavy nahi banana chahti. Main bas yeh chahti hoon ke jab dil mein koi baat ho to usay jagah mile.",
+"Jo hurt hua, usay main erase nahi kar sakti. Lekin main usay hamari poori story bhi nahi banana chahti.",
+"Mujhe hamari funny memories bhi yaad hain, woh chai bhi, woh train bhi, woh bracelet bhi, aur woh raatain bhi.",
+"Mujhe care wali memories sab se zyada touch karti hain, kyun ke unmein words kam aur feeling zyada thi.",
+"Main aapki success chahti hoon. Main chahti hoon aap khush rahein, sehatmand rahein, sukoon mein rahein.",
+"Main chahti hoon ke aap kabhi yeh na samjhein ke meri mohabbat ka matlab aapko control karna hai. Mere liye mohabbat ka matlab khair chahna hai.",
+"Main perfect nahi. Aap bhi perfect nahi. Shayad isi liye real moments itne important hain.",
+"Agar kabhi meri koi baat hurt kare, to please mujhe villain bana kar nahi, ek emotional insaan samajh kar dekhna.",
+"Main bhi seekh rahi hoon ke kaise better communicate karna hai.",
+"Main chahti hoon ke aap bhi meri khamoshi aur mere words dono ko samajhne ki koshish karein.",
+"Humne 12 January se bohat kuch dekha hai. Itna ke ek normal calendar bhi shayad uski depth measure na kar sake.",
+"8 May ne ek aur chapter add kiya. Phir countless little chapters.",
+"Har chapter perfect nahi tha, lekin har chapter ne kuch sikhaya.",
+"Main aaj bhi un good memories ko dil se protect karti hoon.",
+"Main bad-dua nahi karti. Main Allah se khair mangti hoon.",
+"Main aapke liye dua karti hoon ke aapko woh sab mile jo duniya ki nazar se nahi, Allah ke ilm se behtareen ho.",
+"Main chahti hoon ke future mein jab hum purani story parhein, to sirf fights yaad na hon — growth bhi yaad ho.",
+"Main chahti hoon ke meri feelings ko “overreaction” keh kar khatam na kiya jaye.",
+"Main bhi aapki feelings ko lightly nahi lena chahti.",
+"Maybe love ka sab se mature form yahi hai: sunna, samajhna, aur phir bhi kindness choose karna.",
+"Thank you for every good memory that made this website worth making.",
+"Happy early birthday. Aur haan — yeh sirf wish nahi. Yeh meri taraf se ek chota sa “I care” hai. ♡"
+]}
+};
+let modalPage=0,modalKey="";
+function openContent(key){modalKey=key;modalPage=0;renderPages(content[key])}
+function renderPages(obj){document.getElementById("modalContent").innerHTML=`<h2>${obj.title}</h2><div class="poem"><div class="poem-text">${obj.pages[modalPage]}</div></div><div class="count">${modalPage+1} / ${obj.pages.length}</div><div class="pager"><button class="btn" onclick="prevPage()">‹ Previous</button><button class="btn" onclick="nextPage()">Next ›</button></div>`;document.getElementById("modal").classList.add("show")}
+function nextPage(){let a=content[modalKey].pages;modalPage=(modalPage+1)%a.length;renderPages(content[modalKey])}
+function prevPage(){let a=content[modalKey].pages;modalPage=(modalPage-1+a.length)%a.length;renderPages(content[modalKey])}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function openPoem(){modalKey="poetry";modalPage=0;renderPages({title:"Urdu Poetry",pages:[
+"کبھی دعا کی صورت، کبھی خیال کی طرح\nآپ دل میں رہتے ہیں کسی سوال کی طرح\n\nوقت گزرتا رہا، موسم بدلتے رہے\nمگر ایک نام ٹھہرا رہا کمال کی طرح",
+"یہ کیسی محبت ہے، یہ کیسا اثر ہے\nفاصلہ بھی ہو تو دل کو آپ کی خبر ہے\n\nبات کم ہو تو بھی احساس کم نہیں ہوتا\nکچھ رشتوں کا خاموش رہنا بھی ہنر ہے",
+"آپ کی مسکراہٹ کا اثر کچھ ایسا ہے\nدل تھکا ہو تو بھی لمحہ سنور جاتا ہے\n\nدنیا اپنی جگہ، وقت اپنی جگہ\nآپ کا خیال آئے تو دل ٹھہر جاتا ہے",
+"نہ ہر بات لفظوں میں کہی جا سکتی ہے\nنہ ہر خاموشی سمجھی جا سکتی ہے\n\nکچھ رشتے بس محسوس کیے جاتے ہیں\nاور محبت بس نبھائی جا سکتی ہے",
+"رات خاموش تھی، دل بے قرار تھا\nایک خیال تھا جو بار بار تھا\n\nنام لبوں پر نہ آیا تو کیا\nدل کے اندر وہی نام برقرار تھا",
+"دعا میں جو نام بے اختیار آ جائے\nسمجھ لینا دل کو کسی کی فکر ہے\n\nمحبت صرف پاس رہنے کا نام نہیں\nکسی کی خیر مانگنا بھی ایک سفر ہے",
+"کچھ یادیں خوشبو جیسی ہوتی ہیں\nچھوئے بغیر بھی محسوس ہوتی ہیں\n\nاور کچھ لوگ ایسے ہوتے ہیں\nجو دور ہو کر بھی دل کے پاس ہوتے ہیں",
+"وقت نے بہت کچھ بدل دیا شاید\nمگر دل کی ایک عادت نہ بدل سکی\n\nہر خوشی کے بیچ ایک خیال آیا\nاور وہ خیال آپ سے آگے نہ بڑھ سکا",
+"دل کو سکون چاہیے تھا، دعا بن گئی\nایک چاہت تھی، پھر وفا بن گئی\n\nجو بات کبھی اتفاق سے شروع ہوئی\nوہ آہستہ آہستہ میری دنیا بن گئی",
+"محبت میں شور ضروری تو نہیں\nہر احساس کا اظہار ضروری تو نہیں\n\nکبھی ایک نظر کافی ہوتی ہے\nہر بات کے لیے اقرار ضروری تو نہیں",
+"آپ کے لیے جو دعا نکلتی ہے\nاس میں میری خواہش کم، خیر زیادہ ہے\n\nکیونکہ سچی محبت شاید یہی ہے\nکہ دل آپ کی خوشی کا خواہش مند زیادہ ہے",
+"کبھی ہنسی، کبھی آنسو، کبھی ناراضی\nیہی تو زندگی کے رنگ ہیں\n\nاگر دل میں جگہ باقی رہے\nتو چھوٹی لڑائیاں بھی آخرکار ڈھنگ ہیں",
+"کچھ لمحے بہت مختصر تھے\nمگر یادوں میں بہت طویل ہو گئے\n\nایک چائے، ایک نظر، ایک سفر\nاور ہم خود سے بھی زیادہ قریب ہو گئے",
+"دل نے پوچھا، سب سے خوبصورت کیا ہے؟\nجواب آیا: وہ احساس جس میں خوف کم ہو\n\nجہاں انسان اپنی بات کہہ سکے\nاور سامنے والا سننے کو تیار ہو",
+"کسی کے لیے دل میں خیر رکھنا\nخود ایک خوبصورت عبادت لگتی ہے\n\nنام چاہے دنیا کو na معلوم ہو\nدعا آسمان تک ضرور جاتی ہے",
+"وہ رشتے خوبصورت ہوتے ہیں\nجن میں ہنسی بھی ہو، سنجیدگی بھی\n\nجن میں اختلاف آئے تو راستہ بند نہ ہو\nبلکہ سمجھنے کی کوشش باقی رہے",
+"اگر کبھی لفظ کم پڑ جائیں\nتو میری خاموشی پڑھ لینا\n\nاگر کبھی لہجہ تھک جائے\nتو میری نیت دیکھ لینا",
+"ہر دن ایک جیسا نہیں ہوتا\nہر موسم ہمیشہ نہیں رہتا\n\nمگر جو دل خیر چاہنا سیکھ لے\nوہ مشکل وقت میں بھی خالی نہیں رہتا",
+"ایک چھوٹی سی دنیا دل میں بسائی ہے\nجس میں یادوں کی روشنی جلائی ہے\n\nنہ کوئی تاج، نہ کوئی محل\nبس آپ کی خاطر محبت سجائی ہے",
+"جو لمحہ آپ کے ساتھ گزرا\nوہ وقت سے زیادہ قیمتی لگا\n\nدنیا نے شاید کچھ خاص نہ دیکھا\nمگر میرے دل نے اسے یاد بنا لیا",
+"دل کے قریب رہنے والے\nہمیشہ سامنے رہیں، ضروری نہیں\n\nکچھ لوگ دعا بن کر رہتے ہیں\nاور دعا کبھی دور نہیں ہوتی",
+"میں نے خوشیوں کا مطلب بدلا نہیں\nبس ان میں ایک چہرہ aur شامل ہو گیا\n\nاب ہر اچھی خبر کے ساتھ\nدل نے آپ کے لیے بھی مسکرانا سیکھ لیا",
+"کبھی راستے آسان، کبھی مشکل ہوں گے\nکبھی الفاظ کم، کبھی فاصلے زیادہ ہوں گے\n\nبس اتنا رہے کہ دل میں خیر باقی ہو\nتو بہت سے موسم گزر جائیں گے",
+"آخر میں اگر کچھ مانگنا ہو\nتو صرف سکون مانگوں گی\n\nآپ کے لیے، میرے لیے، ہماری ہر دعا کے لیے\nاور ان تمام یادوں کے لیے جو دل میں رہیں گی"
+]})}
+function openStory(){go("story");go("duration")}
+function openBirthday(){window.open("birthday.html","_blank")}
+function unlock(){const v=document.getElementById("pw").value,e=document.getElementById("err");if(v==="EmanAshan1924"){e.textContent="Unlocked ♡";document.getElementById("welcome").classList.remove("hidden");document.getElementById("home").classList.remove("hidden");document.getElementById("duration").classList.remove("hidden");go("welcome")}else{const msgs=["Really? Itni jaldi haar maan li? 😒","Password yaad karo… main hint de chuki hoon. 😤","Nahi ji, yeh wala nahi chalega. ♡","Aap mujhe itna bhi confuse nahi kar sakte. 😑","Bas bas… ab sahi password enter karein. 😌"];unlock.n=(unlock.n||0)+1;e.textContent=msgs[(unlock.n-1)%msgs.length]}}
+function typeText(){const t="Yeh website sirf screens, cards aur animations ka naam nahi. Main ne is mein woh cheezein rakhi hain jo main chahti hoon aap kabhi kabhi dobara parhein — meri duas, meri memories, meri mohabbat, aur woh saari choti baatein jo shayad us waqt normal lagti thin lekin aaj meri story ka hissa hain.";let j=0;const el=document.getElementById("typewriter");const x=setInterval(()=>{el.textContent=t.slice(0,j++);if(j>t.length)clearInterval(x)},25)}
+typeText();
+function exactDuration(){const start=new Date("2024-01-12T19:00:00+05:00"),end=new Date("2026-09-08T17:00:00+05:00");let a=new Date(start),y=0,m=0;while(new Date(a.getFullYear()+1,a.getMonth(),a.getDate(),a.getHours(),a.getMinutes(),a.getSeconds(),a.getMilliseconds())<=end){a.setFullYear(a.getFullYear()+1);y++}while(new Date(a.getFullYear(),a.getMonth()+1,a.getDate(),a.getHours(),a.getMinutes(),a.getSeconds(),a.getMilliseconds())<=end){a.setMonth(a.getMonth()+1);m++}let rem=end-a;let d=Math.floor(rem/86400000);rem%=86400000;let h=Math.floor(rem/3600000);rem%=3600000;let mi=Math.floor(rem/60000);rem%=60000;let s=Math.floor(rem/1000);document.getElementById("counter").innerHTML=`<div class="timebox"><strong>${y}</strong><span>Years</span></div><div class="timebox"><strong>${m}</strong><span>Months</span></div><div class="timebox"><strong>${d}</strong><span>Days</span></div><div class="timebox"><strong>${h}</strong><span>Hours</span></div><div class="timebox"><strong>${mi}</strong><span>Minutes</span></div><div class="timebox"><strong>${s}</strong><span>Seconds</span></div>`;const total=Math.floor((end-start)/1000);document.getElementById("totals").textContent=`Total: ${Math.floor(total/86400).toLocaleString()} days · ${Math.floor(total/3600).toLocaleString()} hours · ${Math.floor(total/60).toLocaleString()} minutes · ${total.toLocaleString()} seconds`};exactDuration();
+</script>
+</body>
+</html>
